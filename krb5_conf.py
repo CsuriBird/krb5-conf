@@ -6,7 +6,7 @@ Takes 3 arguments: FQDN, domain name, and IP address.
 This script is especially useful for evil-winrm, by providing a domain fqdn, a domain name and the associated IP address.
 ```bash
 export KRB5CCNAME=xxxxxxx.ccache
-evil-winrm -i dc01.mirage.htb -r mirage.htb
+evil-winrm -i DC01.certificate.htb -r certificate.htb -k xxxxxxx.ccache
 ```
 Usage: python3 krb5_conf.py <fqdn> <domain_name> <ip_address>
 
@@ -140,17 +140,17 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python3 krb5_conf.py dc01.mirage.htb mirage.htb 10.10.11.78
+  python3 krb5_conf.py DC01.certificate.htb certificate.htb 10.10.11.71
   python3 krb5_conf.py --output /tmp/krb5.conf kdc.mydomain.org mydomain.org 10.0.0.5
         """
     )
     
     parser.add_argument('fqdn', 
-                       help='Fully Qualified Domain Name of the KDC server (e.g., dc1.mirage.htb)')
+                       help='Fully Qualified Domain Name of the KDC server (e.g., DC01.certificate.htb)')
     parser.add_argument('domain_name', 
-                       help='Domain name / realm (e.g., mirage.htb)')
+                       help='Domain name / realm (e.g., certificate.htb)')
     parser.add_argument('ip_address', 
-                       help='IP address of the KDC server (e.g., 10.10.11.78)')
+                       help='IP address of the KDC server (e.g., 10.10.11.71)')
     parser.add_argument('-o', '--output', 
                        default='/etc/krb5.conf',
                        help='Output path for krb5.conf file (default: /etc/krb5.conf)')
