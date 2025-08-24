@@ -3,3 +3,6 @@ It is handy if you are a CTF enthusiast and the NTLM mechanism is disabled when 
 For example, first, you request a ticket/ccache file with Imapcket, export it, and ensure it is in the system using klist. Then, issue the command kinit and enter the user's password.
 After all of this, run this script, and then if port 5985 is open, you can log in with evil-winrm -i fqdn -r domain -k xxxx.ccache.
 Enjoy it!
+
+
+<code> evil-winrm -i fqdn -r domain -k xxxx.ccache</code>
